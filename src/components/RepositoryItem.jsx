@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text } from 'react-native';
 
 const RepositoryItem = ({ item }) => {
   // console.log("item from data", item);
