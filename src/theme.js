@@ -15,6 +15,9 @@ const theme = {
     normal: '400',
     bold: '700',
   },
+  backgroundColors: {
+    backgroundBlueColor: '#0366d6',
+  },
 };
 
 export default theme;

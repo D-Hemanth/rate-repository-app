@@ -15,6 +15,9 @@ const AppBar = () => {
     <View style={styles.container}>
       <Pressable>
         <Text
+          fontWeight="bold"
+          fontSize="subheading"
+          backgroundColor="backgroundBlueColor"
         >
           Repositories
         </Text>
