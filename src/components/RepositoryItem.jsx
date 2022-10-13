@@ -1,16 +1,40 @@
-import { View, Text } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  tinyLogo: {
+    width: 50,
+    height: 50,
+    borderRadius: 5,
+  },
+  viewCard: {
+    display: 'flex',
+  },
+  viewCardItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignContent: 'center',
+    // flexWrap: 'wrap',
+  },
+});
 
 const RepositoryItem = ({ item }) => {
   // console.log("item from data", item);
   return (
-    <View>
-      <Text>Full name: {item.fullName}</Text>
-      <Text>Description: {item.description}</Text>
-      <Text>Language: {item.language}</Text>
-      <Text>Stars: {item.stargazersCount}</Text>
-      <Text>Forks: {item.forksCount}</Text>
-      <Text>Reviews: {item.reviewCount}</Text>
-      <Text>Rating: {item.ratingAverage}</Text>
+    <View style={styles.viewCard}>
+      <View style={styles.viewCardItem}>
+        <Image style={styles.tinyLogo} source={{ uri: item.ownerAvatarUrl }} />
+        <View>
+          <Text>{item.fullName}</Text>
+          <Text>{item.description}</Text>
+          <Text>{item.language}</Text>
+        </View>
+      </View>
+      <View>
+        <Text>{item.stargazersCount}</Text>
+        <Text>{item.forksCount}</Text>
+        <Text>{item.reviewCount}</Text>
+        <Text>{item.ratingAverage}</Text>
+      </View>
     </View>
   );
 };
