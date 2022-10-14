@@ -5,15 +5,16 @@ import AppBarTab from './AppBarTab';
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
-    // ...
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  // ...
 });
 
 const AppBar = () => {
   return (
     <View style={styles.container}>
-      <AppBarTab tabName="Repositories" />
+      <AppBarTab tabName="Repositories" tabView="/" />
+      <AppBarTab tabName="SignIn" tabView="signIn" />
     </View>
   );
 };
