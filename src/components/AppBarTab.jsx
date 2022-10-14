@@ -1,4 +1,5 @@
 import { Pressable, View, StyleSheet } from 'react-native';
+import { Link } from 'react-router-native';
 import Text from './Text';
 
 const styles = StyleSheet.create({
@@ -7,18 +8,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ tabName }) => {
+const AppBarTab = ({ tabName, tabView }) => {
   return (
     <View>
       <Pressable>
-        <Text
-          style={styles.container}
-          fontWeight="bold"
-          fontSize="subheading"
-          backgroundColor="backgroundBlueColor"
-        >
-          {tabName}
-        </Text>
+        {/* use Link method from react native router to link the routes with their content */}
+        <Link to={tabView}>
+          <Text
+            style={styles.container}
+            fontWeight="bold"
+            fontSize="subheading"
+            backgroundColor="backgroundBlueColor"
+          >
+            {tabName}
+          </Text>
+        </Link>
       </Pressable>
     </View>
   );
