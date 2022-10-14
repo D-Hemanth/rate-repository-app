@@ -5,8 +5,6 @@ import AppBarTab from './AppBarTab';
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
 });
 
