@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
   backgroundColorMain: {
     backgroundColor: theme.backgroundColors.backgroundMainColor,
   },
+  backGroundColorPink: {
+    backgroundColor: theme.button.backgroundPinkColor,
+  },
 });
 
 const Text = ({
@@ -45,6 +48,7 @@ const Text = ({
     backgroundColor === 'backgroundMainColor' && styles.backgroundColorMain,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
+    backgroundColor === 'backgroundPinkColor' && styles.backGroundColorPink,
     style,
   ];
 
