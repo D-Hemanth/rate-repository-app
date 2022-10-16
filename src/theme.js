@@ -20,6 +20,9 @@ const theme = {
     backgroundBlueColor: '#0366d6',
     backgroundMainColor: '#e1e4e8',
   },
+  button: {
+    backgroundPinkColor: '#d60366',
+  },
 };
 
 export default theme;
