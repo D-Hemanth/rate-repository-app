@@ -1,10 +1,12 @@
 import { Pressable, View, StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
+import theme from '../theme';
 import Text from './Text';
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor: theme.backgroundColors.backgroundBlueColor,
   },
 });
 
@@ -18,7 +20,6 @@ const AppBarTab = ({ tabName, tabView }) => {
             style={styles.container}
             fontWeight="bold"
             fontSize="subheading"
-            backgroundColor="backgroundBlueColor"
           >
             {tabName}
           </Text>
