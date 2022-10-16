@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
   backGroundColorBlue: {
     backgroundColor: theme.backgroundColors.backgroundBlueColor,
   },
+  backgroundColorMain: {
+    backgroundColor: theme.backgroundColors.backgroundMainColor,
+  },
 });
 
 const Text = ({
@@ -39,6 +42,7 @@ const Text = ({
     color === 'textSecondary' && styles.colorTextSecondary,
     color === 'primary' && styles.colorPrimary,
     backgroundColor === 'backgroundBlueColor' && styles.backGroundColorBlue,
+    backgroundColor === 'backgroundMainColor' && styles.backgroundColorMain,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
     style,

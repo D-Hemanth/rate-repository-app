@@ -1,4 +1,5 @@
 import { View, Image, StyleSheet } from 'react-native';
+import theme from '../theme';
 import Text from './Text';
 
 const styles = StyleSheet.create({
@@ -8,27 +9,30 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   viewCard: {
-    display: 'flex',
     padding: 15,
-    backgroundColor: '#e1e4e8',
+    backgroundColor: theme.backgroundColors.backgroundMainColor,
   },
   viewCardItemA: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
   },
   viewCardItemA1: {
-    display: 'flex',
     padding: 10,
   },
   viewCardItemB: {
-    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   viewCardItemB1: {
-    flexDirection: 'row',
     justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
-  viewCardItemB2: {
-    justifyContent: 'space-evenly',
+  languageStyle: {
+    borderRadius: 5,
+    margin: 5,
+    backgroundColor: theme.backgroundColors.backgroundBlueColor,
+    alignSelf: 'flex-start',
+    padding: 6,
+    textAlign: 'center',
   },
 });
 
@@ -52,29 +56,25 @@ const RepositoryItem = ({ item }) => {
             {item.fullName}
           </Text>
           <Text color="textSecondary">{item.description}</Text>
-          <Text>
-            <Text backgroundColor="backgroundBlueColor">{item.language}</Text>
-          </Text>
+          <Text style={styles.languageStyle}>{item.language}</Text>
         </View>
       </View>
       <View style={styles.viewCardItemB}>
         <View style={styles.viewCardItemB1}>
-          <View style={styles.viewCardItemB2}>
-            <Text>{formattedNumber(item.stargazersCount)}</Text>
-            <Text color="textSecondary">Stars</Text>
-          </View>
-          <View style={styles.viewCardItemB2}>
-            <Text>{formattedNumber(item.forksCount)}</Text>
-            <Text color="textSecondary">Forks</Text>
-          </View>
-          <View style={styles.viewCardItemB2}>
-            <Text>{formattedNumber(item.reviewCount)}</Text>
-            <Text color="textSecondary">Reviews</Text>
-          </View>
-          <View style={styles.viewCardItemB2}>
-            <Text>{formattedNumber(item.ratingAverage)}</Text>
-            <Text color="textSecondary">Rating</Text>
-          </View>
+          <Text>{formattedNumber(item.stargazersCount)}</Text>
+          <Text color="textSecondary">Stars</Text>
+        </View>
+        <View style={styles.viewCardItemB1}>
+          <Text>{formattedNumber(item.forksCount)}</Text>
+          <Text color="textSecondary">Forks</Text>
+        </View>
+        <View style={styles.viewCardItemB1}>
+          <Text>{formattedNumber(item.reviewCount)}</Text>
+          <Text color="textSecondary">Reviews</Text>
+        </View>
+        <View style={styles.viewCardItemB1}>
+          <Text>{formattedNumber(item.ratingAverage)}</Text>
+          <Text color="textSecondary">Rating</Text>
         </View>
       </View>
     </View>
