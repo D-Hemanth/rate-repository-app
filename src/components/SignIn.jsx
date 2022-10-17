@@ -42,14 +42,17 @@ const SignInForm = ({ onSubmit }) => {
 const SignIn = () => {
   // call the useSignIn component with useMutation to get the logged in user's accessToken
   const [signIn] = useSignIn();
+  const navigate = useNavigate();
 
   const onSubmit = async (values) => {
     const { username, password } = values;
 
     try {
       // use the signIn mutation function to perform the user login authentication with useMutation which gives output { data, loading, error }
-      const { data } = await signIn({ username, password });
-      console.log('Logged in user accessToken', data);
+      await signIn({ username, password });
+
+      // on successful login redirect user to repositories homepage
+      navigate('/', { replace: true });
     } catch (error) {
       console.log(error);
     }
