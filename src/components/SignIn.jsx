@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { Formik } from 'formik';
 import { View, StyleSheet } from 'react-native';
 import Button from './Button';
+import useSignIn from '../hooks/useSignIn';
 
 const initialValues = {
   username: '',
@@ -39,8 +40,19 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 const SignIn = () => {
-  const onSubmit = (values) => {
-    console.log(values);
+  // call the useSignIn component with useMutation to get the logged in user's accessToken
+  const [signIn] = useSignIn();
+
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+
+    try {
+      // use the signIn mutation function to perform the user login authentication with useMutation which gives output { data, loading, error }
+      const { data } = await signIn({ username, password });
+      console.log('Logged in user accessToken', data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
