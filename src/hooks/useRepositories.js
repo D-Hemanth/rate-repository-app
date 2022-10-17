@@ -28,7 +28,7 @@ const useRepositories = () => {
   const { data, loading, ...result } = useQuery(GET_REPOSITORIES, {
     fetchPolicy: 'cache-and-network',
   });
-  console.log('all repositories query results', data);
+  // console.log('all repositories query results', data);
 
   if (loading) return <Text>Loading ...</Text>;
 
