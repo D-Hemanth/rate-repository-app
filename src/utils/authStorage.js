@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 class AuthStorage {
   // Because AsyncStorage keys are global, it is usually a good idea to add a namespace for the keys.
@@ -23,3 +24,6 @@ class AuthStorage {
     // Remove the access token from the storage
     return AsyncStorage.removeItem(`${this.namespace}:accessToken`);
   }
+}
+
+export default AuthStorage;
