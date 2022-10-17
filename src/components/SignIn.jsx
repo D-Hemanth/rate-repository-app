@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 const validationSchema = yup.object().shape({
   username: yup
     .string()
-    .min(5, 'Username must be greater than or equal to 5 characters')
+    .min(3, 'Username must be greater than or equal to 5 characters')
     .required('Username is required'),
   password: yup
     .string()
