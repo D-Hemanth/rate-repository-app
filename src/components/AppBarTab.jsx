@@ -10,21 +10,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ tabName, tabView }) => {
+const AppBarTab = ({ tabName, tabView, handleSignOut }) => {
   return (
     <View>
-      <Pressable>
-        {/* use Link method from react native router to link the routes with their content */}
-        <Link to={tabView}>
-          <Text
-            style={styles.container}
-            fontWeight="bold"
-            fontSize="subheading"
-          >
-            {tabName}
-          </Text>
-        </Link>
-      </Pressable>
+      {/* use Link method from react native router to link the routes with their content */}
+      <Link to={tabView} onPress={handleSignOut}>
+        <Text style={styles.container} fontWeight="bold" fontSize="subheading">
+          {tabName}
+        </Text>
+      </Link>
     </View>
   );
 };
