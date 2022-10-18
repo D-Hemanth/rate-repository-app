@@ -19,3 +19,13 @@ export const GET_REPOSITORIES = gql`
     }
   }
 `;
+
+// gql me query can be used to check the authenticated user's infor-mation. If the query's result is null, that means that the user is not authenticated.
+export const ME = gql`
+  query {
+    me {
+      id
+      username
+    }
+  }
+`;
