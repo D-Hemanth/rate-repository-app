@@ -48,7 +48,7 @@ const RepositoryItem = ({ item }) => {
 
   // console.log("item from data", item);
   return (
-    <View style={styles.viewCard}>
+    <View style={styles.viewCard} testID="repositoryItem">
       <View style={styles.viewCardItemA}>
         <Image style={styles.tinyLogo} source={{ uri: item.ownerAvatarUrl }} />
         <View style={styles.viewCardItemA1}>
@@ -59,7 +59,7 @@ const RepositoryItem = ({ item }) => {
           <Text style={styles.languageStyle}>{item.language}</Text>
         </View>
       </View>
-      <View style={styles.viewCardItemB}>
+      <View style={styles.viewCardItemB} testID="countItem">
         <View style={styles.viewCardItemB1}>
           <Text>{formattedNumber(item.stargazersCount)}</Text>
           <Text color="textSecondary">Stars</Text>
