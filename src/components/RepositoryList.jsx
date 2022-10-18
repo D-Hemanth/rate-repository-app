@@ -10,10 +10,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-// get data from the rate repository api server backend using useRepositories() function component
-const RepositoryList = () => {
-  const { repositories } = useRepositories();
-
+export const RepositoryListContainer = ({ repositories }) => {
   // Since the data is paginated in a common cursor based pagination format. The actual repository data is behind the node key in the edges array.
   // Get the nodes from the edges array
   const repositoryNodes = repositories
@@ -29,6 +26,13 @@ const RepositoryList = () => {
       renderItem={renderItem}
     />
   );
+};
+
+// get data from the rate repository api server backend using useRepositories() function component
+const RepositoryList = () => {
+  const { repositories } = useRepositories();
+
+  return <RepositoryListContainer repositories={repositories} />;
 };
 
 export default RepositoryList;
