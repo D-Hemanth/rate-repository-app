@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, showGithubUrlButton }) => {
   // Counts, such as number of stars and forks, larger than or equal to 1000 should be displayed in thousands with precision of one decimal and with a "k" suffix
   const formattedNumber = (number) => {
     const round = (number) => Math.round(number * 10) / 10;
@@ -66,19 +66,27 @@ const RepositoryItem = ({ item }) => {
       </View>
       <View style={styles.viewCardItemB} testID="countItem">
         <View style={styles.viewCardItemB1}>
-          <Text>{formattedNumber(item.stargazersCount)}</Text>
+          <Text fontSize="subheading" fontWeight="bold">
+            {formattedNumber(item.stargazersCount)}
+          </Text>
           <Text color="textSecondary">Stars</Text>
         </View>
         <View style={styles.viewCardItemB1}>
-          <Text>{formattedNumber(item.forksCount)}</Text>
+          <Text fontSize="subheading" fontWeight="bold">
+            {formattedNumber(item.forksCount)}
+          </Text>
           <Text color="textSecondary">Forks</Text>
         </View>
         <View style={styles.viewCardItemB1}>
-          <Text>{formattedNumber(item.reviewCount)}</Text>
+          <Text fontSize="subheading" fontWeight="bold">
+            {formattedNumber(item.reviewCount)}
+          </Text>
           <Text color="textSecondary">Reviews</Text>
         </View>
         <View style={styles.viewCardItemB1}>
-          <Text>{formattedNumber(item.ratingAverage)}</Text>
+          <Text fontSize="subheading" fontWeight="bold">
+            {formattedNumber(item.ratingAverage)}
+          </Text>
           <Text color="textSecondary">Rating</Text>
         </View>
       </View>
