@@ -1,6 +1,7 @@
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Linking } from 'react-native';
 import theme from '../theme';
 import Text from './Text';
+import Button from './Button';
 
 const styles = StyleSheet.create({
   tinyLogo: {
@@ -33,6 +34,10 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     padding: 6,
     textAlign: 'center',
+  },
+  button: {
+    backgroundColor: theme.backgroundColors.backgroundBlueColor,
+    borderRadius: 5,
   },
 });
 
@@ -77,6 +82,14 @@ const RepositoryItem = ({ item }) => {
           <Text color="textSecondary">Rating</Text>
         </View>
       </View>
+      {showGithubUrlButton && (
+        // to open a URL in a browser, use the Expo's Linking API specifically Linking.openURL method
+        <Button onPress={() => Linking.openURL(item.url)} style={styles.button}>
+          <Text fontSize="subheading" fontWeight="bold">
+            Open in Github
+          </Text>
+        </Button>
+      )}
     </View>
   );
 };
