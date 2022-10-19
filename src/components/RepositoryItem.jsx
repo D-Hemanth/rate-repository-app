@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   viewCardItemA1: {
-    padding: 10,
+    paddingRight: 10,
+    paddingLeft: 10,
   },
   viewCardItemB: {
     flexDirection: 'row',
@@ -29,7 +30,6 @@ const styles = StyleSheet.create({
   },
   languageStyle: {
     borderRadius: 5,
-    margin: 5,
     backgroundColor: theme.backgroundColors.backgroundBlueColor,
     alignSelf: 'flex-start',
     padding: 6,
