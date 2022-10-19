@@ -5,6 +5,7 @@ import { View, StyleSheet } from 'react-native';
 import Button from './Button';
 import useSignIn from '../hooks/useSignIn';
 import { useNavigate } from 'react-router-native';
+import theme from '../theme';
 
 const initialValues = {
   username: '',
@@ -14,6 +15,7 @@ const initialValues = {
 const styles = StyleSheet.create({
   button: {
     margin: 15,
+    backgroundColor: theme.button.backgroundPinkColor,
   },
 });
 

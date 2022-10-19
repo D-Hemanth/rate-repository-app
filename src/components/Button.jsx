@@ -1,5 +1,4 @@
 import { Pressable, View, StyleSheet } from 'react-native';
-import theme from '../theme';
 import Text from './Text';
 
 const styles = StyleSheet.create({
@@ -8,7 +7,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.button.backgroundPinkColor,
+    marginTop: 15,
   },
 });
 
