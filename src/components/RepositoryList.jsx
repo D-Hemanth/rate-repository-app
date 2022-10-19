@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
+// export RepositoryListContainer having only the pure code without graphql query so that we can use it in testing
 export const RepositoryListContainer = ({ repositories }) => {
   // Since the data is paginated in a common cursor based pagination format. The actual repository data is behind the node key in the edges array.
   // Get the nodes from the edges array

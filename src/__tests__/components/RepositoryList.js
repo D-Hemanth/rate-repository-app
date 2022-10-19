@@ -58,6 +58,7 @@ describe('RepositoryList', () => {
       const countItems = getAllByTestId('countItem');
       const [firstRepositoryCountItem, secondRepositoryCountItem] = countItems;
 
+      // The debug function prints the rendered React tree in a user-friendly format.
       debug();
       // console.log('firstRepositoryItem', firstRepositoryItem);
 
