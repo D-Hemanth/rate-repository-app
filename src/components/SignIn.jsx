@@ -40,6 +40,19 @@ const SignInForm = ({ onSubmit }) => {
   );
 };
 
+// export SignInFormContainer having only the pure code without graphql query so that we can use it in testing
+export const SignInFormContainer = ({ onSubmit }) => {
+  return (
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
+      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+    </Formik>
+  );
+};
+
 const SignIn = () => {
   // call the useSignIn component with useMutation to get the logged in user's accessToken
   const [signIn] = useSignIn();
@@ -59,15 +72,7 @@ const SignIn = () => {
     }
   };
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={validationSchema}
-    >
-      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
-    </Formik>
-  );
+  return <SignInFormContainer onSubmit={onSubmit} />;
 };
 
 export default SignIn;
