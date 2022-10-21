@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-native';
 import theme from '../theme';
 
 import AppBar from './AppBar';
+import CreateReview from './CreateReview';
 import RepositoryList from './RepositoryList';
 import SignIn from './SignIn';
 import SingleRepository from './SingleRepository';
@@ -22,6 +23,7 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<RepositoryList />} exact />
         <Route path="/signIn" element={<SignIn />} exact />
+        <Route path="/createReview" element={<CreateReview />} exact />
         <Route path="/:id" element={<SingleRepository />} exact />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

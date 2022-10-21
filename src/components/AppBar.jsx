@@ -22,7 +22,10 @@ const AppBar = () => {
       <ScrollView horizontal>
         <AppBarTab tabName="Repositories" tabView="/" />
         {!loading && !error && data.me ? (
-          <AppBarTab tabName="Sign out" handleSignOut={signOut} />
+          <>
+            <AppBarTab tabName="Create a review" tabView="/createReview" />
+            <AppBarTab tabName="Sign out" handleSignOut={signOut} />
+          </>
         ) : (
           <AppBarTab tabName="Sign In" tabView="/signIn" />
         )}
