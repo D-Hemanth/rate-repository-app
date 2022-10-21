@@ -6,6 +6,8 @@ import Text from './Text';
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    paddingRight: 10,
+    paddingLeft: 15,
     backgroundColor: theme.backgroundColors.backgroundBlueColor,
   },
 });
