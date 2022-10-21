@@ -10,3 +10,26 @@ export const LOGIN = gql`
     }
   }
 `;
+
+// gql mutation for creating a review by a loggedIn user on apollo server backend
+// 3 things to remember for gql variables: query should be named, Declare $variableName as one of the variables accepted by the query & pass it as a parameter to query
+// the CreateReview mutation has 4 arguments called review, which is of type CreateReviewInput. This input type contains ownerName, repositoryName, rating, reivew fields.
+export const CREATE_REVIEW = gql`
+  mutation CreateReview(
+    $ownerName: String!
+    $repositoryName: String!
+    $rating: Int!
+    $text: String
+  ) {
+    createReview(
+      review: {
+        ownerName: $ownerName
+        repositoryName: $repositoryName
+        rating: $rating
+        text: $text
+      }
+    ) {
+      repositoryId
+    }
+  }
+`;
