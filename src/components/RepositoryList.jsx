@@ -2,17 +2,27 @@ import { FlatList, View, StyleSheet, Pressable } from 'react-native';
 import RepositoryItem from './RepositoryItem';
 import useRepositories from '../hooks/useRepositories';
 import { useNavigate } from 'react-router-native';
+import { Picker } from '@react-native-picker/picker';
+import { useState } from 'react';
 
 const styles = StyleSheet.create({
   separator: {
     height: 10,
   },
+  picker: {
+    padding: 15,
+    backgroundColor: '#C4CAD2',
+  },
 });
-
+// #C4CAD2
 const ItemSeparator = () => <View style={styles.separator} />;
 
 // export RepositoryListContainer having only the pure code without graphql query so that we can use it in testing
-export const RepositoryListContainer = ({ repositories }) => {
+export const RepositoryListContainer = ({
+  repositories,
+  orderDirection,
+  setOrderDirection,
+}) => {
   const navigate = useNavigate();
 
   // Since the data is paginated in a common cursor based pagination format. The actual repository data is behind the node key in the edges array.
@@ -57,15 +67,24 @@ export const RepositoryListContainer = ({ repositories }) => {
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={renderItem}
+      ListHeaderComponent={sortingRepositories}
     />
   );
 };
 
 // get data from the rate repository api server backend using useRepositories() function component
 const RepositoryList = () => {
-  const { repositories } = useRepositories();
+  // orderDirection hook to filter the repositories by their orderDirection of Rating values
+  const [orderDirection, setOrderDirection] = useState(undefined);
+  const { repositories } = useRepositories({ orderDirection });
 
-  return <RepositoryListContainer repositories={repositories} />;
+  return (
+    <RepositoryListContainer
+      repositories={repositories}
+      orderDirection={orderDirection}
+      setOrderDirection={setOrderDirection}
+    />
+  );
 };
 
 export default RepositoryList;
