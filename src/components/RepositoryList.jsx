@@ -34,6 +34,24 @@ export const RepositoryListContainer = ({ repositories }) => {
     );
   };
 
+  // sortingRepositories using the picker package & orderDirection useState hook
+  const sortingRepositories = () => {
+    return (
+      <View style={styles.picker}>
+        <Picker
+          selectedValue={orderDirection}
+          onValueChange={(itemValue) =>
+            setOrderDirection(itemValue || undefined)
+          }
+        >
+          <Picker.Item label="Latest repositories" value="" />
+          <Picker.Item label="Highest rated repositories" value="DESC" />
+          <Picker.Item label="Lowest rated repositories" value="ASC" />
+        </Picker>
+      </View>
+    );
+  };
+
   return (
     <FlatList
       data={repositoryNodes}
