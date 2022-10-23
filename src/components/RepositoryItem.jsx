@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   languageStyle: {
     borderRadius: 5,
     backgroundColor: theme.backgroundColors.backgroundBlueColor,
+    color: 'white',
     alignSelf: 'flex-start',
     padding: 6,
     textAlign: 'center',
