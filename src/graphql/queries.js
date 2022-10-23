@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
 import { REPOSITORY_DETAILS } from './fragments';
 
-// gql query for getting all the repositories data from apollo server backend
+// gql query for getting all the repositories data from apollo server backend with arguments to get all the repositories orderBy date & orderdirection from ASC to DESC
 export const GET_REPOSITORIES = gql`
-  query {
-    repositories {
+  query Repositories($orderDirection: OrderDirection) {
+    repositories(orderDirection: $orderDirection) {
       edges {
         node {
           ...RepositoryDetails
