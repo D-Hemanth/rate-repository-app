@@ -33,3 +33,13 @@ export const CREATE_REVIEW = gql`
     }
   }
 `;
+
+// gql query mutation to create new user by giving arguments for username & password
+export const SIGN_UP_USER = gql`
+  mutation CreateUser($username: String!, $password: String!) {
+    createUser(user: { username: $username, password: $password }) {
+      id
+      username
+    }
+  }
+`;
