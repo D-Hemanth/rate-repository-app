@@ -6,6 +6,7 @@ import Button from './Button';
 import useSignIn from '../hooks/useSignIn';
 import { useNavigate } from 'react-router-native';
 import theme from '../theme';
+import Text from './Text';
 
 const initialValues = {
   username: '',
@@ -36,7 +37,9 @@ const SignInForm = ({ onSubmit }) => {
       <FormikTextInput name="username" placeholder="Username" />
       <FormikTextInput name="password" placeholder="Password" secureTextEntry />
       <Button onPress={onSubmit} style={styles.button}>
-        Sign In
+        <Text fontSize="subheading" fontWeight="bold">
+          Sign In
+        </Text>
       </Button>
     </View>
   );
