@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import Constants from 'expo-constants';
 import { setContext } from '@apollo/client/link/context';
+import { relayStylePagination } from '@apollo/client/utilities';
 
 // You might need to change this depending on how you have configured the Apollo Server's URI
 const { apollo_uri } = Constants.manifest.extra;
@@ -8,6 +9,16 @@ const { apollo_uri } = Constants.manifest.extra;
 // HTTP connection to the GraphQL server
 const httpLink = createHttpLink({
   uri: apollo_uri,
+});
+
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        repositories: relayStylePagination(),
+      },
+    },
+  },
 });
 
 // create a new client object using ApolloClient, which is then used to send a query to the server
@@ -34,7 +45,7 @@ const createApolloClient = (authStorage) => {
 
   return new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
+    cache,
   });
 };
 

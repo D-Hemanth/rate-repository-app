@@ -3,15 +3,29 @@ import { REPOSITORY_DETAILS } from './fragments';
 
 // gql query for getting all the repositories data from apollo server backend with arguments to get all the repositories orderBy date & orderdirection from ASC to DESC
 export const GET_REPOSITORIES = gql`
-  query Repositories($orderDirection: OrderDirection, $searchKeyword: String) {
+  query Repositories(
+    $orderDirection: OrderDirection
+    $searchKeyword: String
+    $first: Int
+    $after: String
+  ) {
     repositories(
       orderDirection: $orderDirection
       searchKeyword: $searchKeyword
+      first: $first
+      after: $after
     ) {
+      totalCount
       edges {
         node {
           ...RepositoryDetails
         }
+        cursor
+      }
+      pageInfo {
+        endCursor
+        startCursor
+        hasNextPage
       }
     }
   }
