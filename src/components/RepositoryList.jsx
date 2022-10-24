@@ -3,6 +3,7 @@ import RepositoryItem from './RepositoryItem';
 import useRepositories from '../hooks/useRepositories';
 import { useNavigate } from 'react-router-native';
 import { Picker } from '@react-native-picker/picker';
+import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { useDebounce } from 'use-debounce';
 
