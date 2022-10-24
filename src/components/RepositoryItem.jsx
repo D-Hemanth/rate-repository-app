@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
     backgroundColor: theme.backgroundColors.backgroundBlueColor,
     borderRadius: 5,
   },
+  buttonText: {
+    color: 'white',
+  },
 });
 
 const RepositoryItem = ({ item, showGithubUrlButton }) => {
@@ -94,7 +97,11 @@ const RepositoryItem = ({ item, showGithubUrlButton }) => {
       {showGithubUrlButton && (
         // to open a URL in a browser, use the Expo's Linking API specifically Linking.openURL method
         <Button onPress={() => Linking.openURL(item.url)} style={styles.button}>
-          <Text fontSize="subheading" fontWeight="bold">
+          <Text
+            fontSize="subheading"
+            fontWeight="bold"
+            style={styles.buttonText}
+          >
             Open in Github
           </Text>
         </Button>

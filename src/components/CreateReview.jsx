@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
     margin: 15,
     backgroundColor: theme.button.backgroundPinkColor,
   },
+  buttonText: {
+    color: 'white',
+  },
 });
 
 const validationSchema = yup.object().shape({
@@ -41,7 +44,7 @@ const ReviewForm = ({ onSubmit }) => {
       <FormikTextInput name="rating" placeholder="Rating between 0 and 100" />
       <FormikTextInput name="text" placeholder="Review" multiline />
       <Button onPress={onSubmit} style={styles.button}>
-        <Text fontSize="subheading" fontWeight="bold">
+        <Text fontSize="subheading" fontWeight="bold" style={styles.buttonText}>
           Create a review
         </Text>
       </Button>

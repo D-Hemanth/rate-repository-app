@@ -1,10 +1,9 @@
-// import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_REPOSITORIES } from '../graphql/queries';
 import Text from '../components/Text';
 
 const useRepositories = (variables) => {
-  // console.log('orderDirection', orderDirection);
+  // console.log('variables', variables);
 
   // use graphql query to get the rate repository data from apollo server backend
   const { data, loading, fetchMore, ...result } = useQuery(GET_REPOSITORIES, {
@@ -29,8 +28,6 @@ const useRepositories = (variables) => {
   };
 
   if (loading) return <Text>Loading ...</Text>;
-
-  // const repositories = data.repositories;
 
   return {
     repositories: data?.repositories,

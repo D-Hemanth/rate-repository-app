@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
     margin: 15,
     backgroundColor: theme.button.backgroundPinkColor,
   },
+  buttonText: {
+    color: 'white',
+  },
 });
 
 const validationSchema = yup.object().shape({
@@ -50,7 +53,7 @@ const SignUpForm = ({ onSubmit }) => {
         secureTextEntry
       />
       <Button onPress={onSubmit} style={styles.button}>
-        <Text fontSize="subheading" fontWeight="bold">
+        <Text fontSize="subheading" fontWeight="bold" style={styles.buttonText}>
           Sign Up
         </Text>
       </Button>
