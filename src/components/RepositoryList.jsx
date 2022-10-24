@@ -52,7 +52,7 @@ export class RepositoryListContainer extends React.Component {
   };
 
   render() {
-    const { repositories, navigate } = this.props;
+    const { repositories, navigate, onEndReach } = this.props;
 
     // Since the data is paginated in a common cursor based pagination format. The actual repository data is behind the node key in the edges array.
     // Get the nodes from the edges array
@@ -80,6 +80,8 @@ export class RepositoryListContainer extends React.Component {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ListHeaderComponent={this.renderHeader}
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.5}
       />
     );
   }
@@ -93,11 +95,17 @@ const RepositoryList = () => {
   const [searchQuery, setSearchQuery] = useState('');
   // To avoid a multitude of unnecessary requests while the user types the keyword fast, only pick the latest input after a short delay using useDebounce
   const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
-  const { repositories } = useRepositories({
+  const { repositories, fetchMore } = useRepositories({
+    first: 8,
     orderDirection,
     debouncedSearchQuery,
   });
   const navigate = useNavigate();
+
+  const onEndReach = () => {
+    // console.log('You have reached the end of the list of repositories');
+    fetchMore();
+  };
 
   return (
     <RepositoryListContainer
@@ -107,6 +115,7 @@ const RepositoryList = () => {
       setSearchQuery={setSearchQuery}
       searchQuery={searchQuery}
       navigate={navigate}
+      onEndReach={onEndReach}
     />
   );
 };
