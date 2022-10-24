@@ -33,6 +33,7 @@ const AppBar = () => {
         {!loading && !error && data.me ? (
           <>
             <AppBarTab tabName="Create a review" tabView="/createReview" />
+            <AppBarTab tabName="My Reviews" tabView="/myReviews" />
             <AppBarTab tabName="Sign out" handleSignOut={signOutUser} />
           </>
         ) : (
