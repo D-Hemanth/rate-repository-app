@@ -11,11 +11,17 @@ const httpLink = createHttpLink({
   uri: apollo_uri,
 });
 
+// add fetchMore policies to the InMemoryCache for repositories field & review field
 const cache = new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
         repositories: relayStylePagination(),
+      },
+    },
+    Repository: {
+      fields: {
+        reviews: relayStylePagination(),
       },
     },
   },
