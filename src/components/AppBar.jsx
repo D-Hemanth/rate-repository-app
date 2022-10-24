@@ -2,7 +2,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import AppBarTab from './AppBarTab';
 import { useQuery } from '@apollo/client';
-import { ME } from '../graphql/queries';
+import { GET_CURRENT_USER } from '../graphql/queries';
 import useSignOut from '../hooks/useSignOut';
 import { useNavigate } from 'react-router-native';
 
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 
 const AppBar = () => {
   // use query ME to check if the user is authenticated i.e. has access token or not authenticated i.e. query returns null
-  const { data, loading, error } = useQuery(ME);
+  const { data, loading, error } = useQuery(GET_CURRENT_USER);
   // console.log('query ME to get authenticated user details', data);
   const [signOut] = useSignOut();
   const navigate = useNavigate();
