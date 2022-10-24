@@ -1,8 +1,7 @@
 import { View, FlatList, StyleSheet } from 'react-native';
 import RepositoryItem from './RepositoryItem';
 import { useParams } from 'react-router-native';
-import { SINGLE_REPOSITORY } from '../graphql/queries';
-import { useQuery } from '@apollo/client';
+import useRepository from '../hooks/useRepository';
 import Text from './Text';
 import theme from '../theme';
 import { format } from 'date-fns';
@@ -69,14 +68,12 @@ const ReviewItem = ({ review }) => {
 const SingleRepository = () => {
   const { id } = useParams();
   // console.log('useParams id data', id);
-  const { data, loading } = useQuery(SINGLE_REPOSITORY, {
-    variables: { repositoryId: id },
+
+  const { repository, fetchMore } = useRepository({
+    repositoryId: id,
+    first: 4,
   });
-
-  if (loading) return <Text>Loading...</Text>;
-
-  // console.log('useQuery of URL data', data);
-  const repository = data.repository;
+  // console.log('single Repository useQuery data', repository);
 
   // Since the data is paginated in a common cursor based pagination format. The actual repository data is behind the node key in the edges array.
   // Get the nodes from the edges array
@@ -84,14 +81,25 @@ const SingleRepository = () => {
     ? repository.reviews.edges.map((edge) => edge.node)
     : [];
 
+  const onEndReach = () => {
+    // console.log('You have reached the end of the reviews list');
+    fetchMore();
+  };
+
   return (
-    <FlatList
-      data={reviews}
-      renderItem={({ item }) => <ReviewItem review={item} />}
-      keyExtractor={({ id }) => id}
-      ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
-      ItemSeparatorComponent={ItemSeparator}
-    />
+    <>
+      {repository && (
+        <FlatList
+          data={reviews}
+          renderItem={({ item }) => <ReviewItem review={item} />}
+          keyExtractor={({ id }) => id}
+          ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
+          ItemSeparatorComponent={ItemSeparator}
+          onEndReached={onEndReach}
+          onEndReachedThreshold={0.5}
+        />
+      )}
+    </>
   );
 };
 
