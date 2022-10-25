@@ -69,7 +69,7 @@ const CreateReview = () => {
         rating,
         text,
       });
-      console.log('CreateReview mutate data', addedReview);
+      // console.log('CreateReview mutate data', addedReview);
 
       // on successful createReview redirect user to Single repository homepage with reivew you just added
       navigate(`/${addedReview.createReview.repositoryId}`, { replace: true });

@@ -14,7 +14,7 @@ const useCreateReview = () => {
     const { data } = await createReview({
       variables: { ownerName, repositoryName, rating: Number(rating), text },
     });
-    console.log('useCreateReview mutate data', data);
+    // console.log('useCreateReview mutate data', data);
 
     return data;
   };
