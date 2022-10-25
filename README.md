@@ -2,7 +2,9 @@
 
 React Native mobile application for rating GitHub repositories.
 
-<img src="./app-mockups/repositoryListView.png" width="50%" />
+<img src="app-mockups/darkTheme/repositoryListView.PNG" width="50%" style="border-radius: 10px 0px 0px 10px" /><img src="app-mockups/darkTheme/myReviews.PNG" width="50%" style="border-radius: 0px 10px 10px 0px" />
+
+More app demo images: [DarkTheme](https://github.com/D-Hemanth/rate-repository-app/tree/main/app-mockups/darkTheme) || [LightTheme](https://github.com/D-Hemanth/rate-repository-app/tree/main/app-mockups/lightTheme)
 
 This application will have features such as, sorting and filtering reviewed repositories, registering a user, logging in and creating a review, deleting a review for a repository.
 
