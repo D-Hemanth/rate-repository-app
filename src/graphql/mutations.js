@@ -43,3 +43,10 @@ export const SIGN_UP_USER = gql`
     }
   }
 `;
+
+// gql mutation for deleting a review by a loggedIn user on apollo server backend
+export const DELETE_REVIEW = gql`
+  mutation DeleteReview($deleteReviewId: ID!) {
+    deleteReview(id: $deleteReviewId)
+  }
+`;
