@@ -6,9 +6,34 @@ React Native mobile application for rating GitHub repositories.
 
 More app demo images: [DarkTheme](https://github.com/D-Hemanth/rate-repository-app/tree/main/app-mockups/darkTheme) || [LightTheme](https://github.com/D-Hemanth/rate-repository-app/tree/main/app-mockups/lightTheme)
 
-This application will have features such as, sorting and filtering reviewed repositories, registering a user, logging in and creating a review, deleting a review for a repository.
+## rate-repository-app gif:
 
-The app was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app) and is running on Expo.
+- **without-login:**
+
+  <img src="./app-mockups//app-demo-gifs/without-login.gif" width="300" >
+
+- **logged-in:**
+
+  <img src="./app-mockups/app-demo-gifs/logged-in.gif" width="300">
+
+## Rate repository app:
+
+- The app was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app) and is running on Expo.
+- The app has the following properties:
+  - user sign in/out
+  - sign up for new users
+  - view all reviewed repositories
+  - signed in user can create reviews
+  - view reviews created by the signed in user
+
+## Technologies used in this project:
+
+- Expo CLI
+- React Native, React Router Native
+- Apollo Client, GraphQL
+- Formik & Yup
+- Jest & React Native Testing Library
+- ESLint
 
 ## Configuration
 
